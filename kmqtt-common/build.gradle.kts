@@ -162,3 +162,13 @@ kotlin {
         }
     }
 }
+
+publishing {
+    repositories {
+        maven {
+            name = "github"
+            url = uri("https://maven.pkg.github.com/Nextome/KMQTT")
+            credentials(PasswordCredentials::class)
+        }
+    }
+}

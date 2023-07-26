@@ -7,8 +7,15 @@ allprojects {
 }
 
 buildscript {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+
     dependencies {
         classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.20.0")
+        classpath("com.android.tools.build:gradle:7.3.1")
     }
 }
 
@@ -19,5 +26,7 @@ plugins {
 
 subprojects {
     group = "com.github.davidepianca98"
-    version = "0.4.1"
+    val libraryVersion = "0.4.1"
+    version = System.getenv("GITHUB_REF")?.split('/')?.last() ?: libraryVersion
+
 }
